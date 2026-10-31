@@ -1,94 +1,41 @@
 <!doctype html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#087f5b">
-  <title>পথসাথী — চট্টগ্রামের যাতায়াত সহায়ক</title>
-  <style>
-    :root { --green:#087f5b; --pale:#eaf7f1; --ink:#172b25; --muted:#60736c; --line:#dce8e2; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif; color:var(--ink); background:#f6faf8; }
-    header { background:var(--green); color:white; padding:22px 18px 26px; }
-    .wrap { max-width:850px; margin:auto; }
-    .brand { font-size:27px; font-weight:800; letter-spacing:.2px; }
-    .tag { margin-top:7px; line-height:1.6; opacity:.95; }
-    main { padding:18px; }
-    .card { background:white; border:1px solid var(--line); border-radius:16px; padding:17px; margin-bottom:15px; box-shadow:0 3px 12px #163b2a0b; }
-    h2 { margin:0 0 12px; font-size:19px; }
-    label { display:block; font-weight:650; margin:12px 0 6px; }
-    input,select,textarea,button { width:100%; font:inherit; border-radius:10px; padding:12px; }
-    input,select,textarea { border:1px solid #cbdcd3; background:#fff; color:var(--ink); }
-    button { border:0; background:var(--green); color:white; font-weight:750; margin-top:13px; cursor:pointer; }
-    .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .note { font-size:13px; line-height:1.6; color:var(--muted); }
-    .pill { display:inline-block; padding:4px 9px; background:var(--pale); color:var(--green); border-radius:99px; font-size:12px; font-weight:700; }
-    iframe { width:100%; height:290px; border:0; border-radius:12px; background:#edf3ef; }
-    #result { margin-top:12px; line-height:1.7; }
-    .footer { text-align:center; color:var(--muted); font-size:12px; padding:10px 18px 26px; }
-    @media(max-width:520px) { .row { grid-template-columns:1fr; } .brand{font-size:24px;} iframe{height:250px;} }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#087f5b">
+<meta name="description" content="পথসাথী—চট্টগ্রামের যাতায়াত তথ্য খোঁজা ও স্থানীয় তথ্য জানানোর প্রাথমিক প্ল্যাটফর্ম।">
+<title>পথসাথী — চট্টগ্রামের যাতায়াত সহায়ক</title>
+<style>
+:root{--green:#087f5b;--green2:#056348;--pale:#eaf7f1;--ink:#172b25;--muted:#60736c;--line:#dce8e2;--bg:#f4f8f6;--amber:#8a5700;--amberbg:#fff4d8;--red:#a33232}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+header{background:linear-gradient(135deg,var(--green),#075c48);color:white;padding:23px 17px 25px}.wrap{max-width:900px;margin:auto}.brand{font-size:28px;font-weight:850;letter-spacing:.2px}.tag{margin-top:5px;opacity:.96}.topnote{font-size:12px;margin-top:12px;display:inline-block;padding:5px 9px;border:1px solid #ffffff65;border-radius:99px}
+main{padding:17px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:17px;margin-bottom:15px;box-shadow:0 3px 12px #163b2a0a}h2{font-size:19px;margin:0 0 10px}.sub{color:var(--muted);font-size:13px;margin:0 0 12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:11px}label{display:block;font-weight:700;margin:11px 0 6px}input,select,textarea,button{width:100%;font:inherit;border-radius:10px;padding:12px}input,select,textarea{border:1px solid #cbdcd3;background:#fff;color:var(--ink)}input:focus,select:focus,textarea:focus,button:focus-visible{outline:3px solid #8bd7b6;outline-offset:2px}button{border:0;background:var(--green);color:white;font-weight:750;margin-top:12px;cursor:pointer}button:hover{background:var(--green2)}button.secondary{background:#edf5f1;color:var(--green2);border:1px solid var(--line)}button.danger{background:#fff0f0;color:var(--red);border:1px solid #f0cccc}.pill{display:inline-block;padding:4px 9px;background:var(--pale);color:var(--green);border-radius:99px;font-size:12px;font-weight:750}.notice{padding:11px 12px;border-radius:11px;background:var(--amberbg);color:var(--amber);font-size:13px;margin-top:12px}.status{padding:11px 12px;border-radius:10px;background:#f0f5f2;color:var(--ink);margin-top:12px;font-size:14px;overflow-wrap:anywhere}.result-card{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}.result-title{font-weight:800}.small{font-size:12px;color:var(--muted)}iframe{width:100%;height:285px;border:0;border-radius:12px;background:#edf3ef}.tools{display:grid;grid-template-columns:1fr 1fr;gap:10px}.report{border-top:1px solid var(--line);padding:12px 0}.report:first-child{border-top:0}.report p{margin:5px 0}.empty{padding:14px;border:1px dashed #cbdcd3;border-radius:12px;color:var(--muted);font-size:14px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:10px 18px 26px}
+@media(max-width:560px){.row,.tools{grid-template-columns:1fr}.brand{font-size:25px}main{padding:12px}.card{padding:14px}iframe{height:250px}}
+</style>
 </head>
 <body>
-<header><div class="wrap">
-  <div class="brand">🧭 পথসাথী</div>
-  <div class="tag">চট্টগ্রামে কোথায় যাবেন, কীভাবে যাবেন—সহজে জানুন।</div>
-</div></header>
+<header><div class="wrap"><div class="brand">🧭 পথসাথী</div><div class="tag">চট্টগ্রামে কোথায় যাবেন, কীভাবে যাবেন—যাতায়াতের তথ্য এক জায়গায়।</div><div class="topnote">প্রাথমিক কার্যকর সংস্করণ · তথ্য যাচাই চলছে</div></div></header>
 <main class="wrap">
-  <section class="card">
-    <span class="pill">প্রাথমিক পরীক্ষামূলক সংস্করণ</span>
-    <h2 style="margin-top:10px">যাত্রার তথ্য খুঁজুন</h2>
-    <div class="row">
-      <div><label for="from">কোথা থেকে যাবেন?</label><input id="from" placeholder="যেমন: নিউমার্কেট"></div>
-      <div><label for="to">কোথায় যাবেন?</label><input id="to" placeholder="যেমন: আগ্রাবাদ"></div>
-    </div>
-    <button id="search">রুটের তথ্য খুঁজুন</button>
-    <div id="result" aria-live="polite" class="note">এখনো যাচাইকৃত রুটের ডেটাবেস যুক্ত হয়নি। এই ডেমোতে বাস্তব রুট বা ভাড়া নিশ্চিত করে দেখানো হয় না।</div>
-  </section>
-  <section class="card">
-    <h2>চট্টগ্রামের ম্যাপ</h2>
-    <p class="note">ম্যাপটি OpenStreetMap-এর মাধ্যমে দেখানো হচ্ছে। ম্যাপের তথ্য ও যাতায়াতের রুট এক জিনিস নয়—বাসের রুট ও ভাড়া আলাদাভাবে যাচাই করতে হবে।</p>
-    <iframe title="চট্টগ্রামের মানচিত্র" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=91.75%2C22.25%2C91.88%2C22.38&layer=mapnik&marker=22.3569%2C91.7832"></iframe>
-    <p class="note">ম্যাপের তথ্যসূত্র: © OpenStreetMap contributors.</p>
-  </section>
-  <section class="card">
-    <h2>তথ্য বা রাস্তার সমস্যা জানান</h2>
-    <label for="kind">রিপোর্টের ধরন</label>
-    <select id="kind"><option>ভাড়ার তথ্য</option><option>রুট সংশোধন</option><option>যানজট / রাস্তার সমস্যা</option><option>স্থানের তথ্য</option></select>
-    <label for="details">বিস্তারিত লিখুন</label>
-    <textarea id="details" rows="3" placeholder="কী তথ্য জানাতে চান?"></textarea>
-    <button id="save">এই ফোনে ডেমো রিপোর্ট সংরক্ষণ</button>
-    <div id="reportResult" class="note" aria-live="polite"></div>
-    <p class="note">সতর্কতা: এই ডেমো রিপোর্ট শুধু এই ব্রাউজারের লোকাল স্টোরেজে থাকে। এখনো সার্ভারে পাঠানো হয় না এবং অন্য ব্যবহারকারীরা দেখতে পান না।</p>
-  </section>
-  <section class="card">
-    <h2>পরবর্তী পরিকল্পনা</h2>
-    <p class="note">পরবর্তী পর্যায়ে অনলাইন ডেটাবেস, যাচাইকৃত রুট ও ভাড়া, রিপোর্ট যাচাই এবং ব্যবহারকারীদের জন্য নিরাপদ অ্যাকাউন্ট যোগ করার পরিকল্পনা রয়েছে।</p>
-  </section>
-</main>
-<div class="footer">পথসাথী © পরীক্ষামূলক সংস্করণ · তথ্য যাচাই ছাড়া নিশ্চিত ধরে নেবেন না</div>
+<section class="card"><span class="pill">রুট অনুসন্ধান</span><h2 style="margin-top:9px">আপনার যাত্রা খুঁজুন</h2><p class="sub">শুরু ও গন্তব্য লিখুন। যাচাইকৃত তথ্য পাওয়া না গেলে তা স্পষ্টভাবে জানানো হবে।</p>
+<div class="row"><div><label for="from">কোথা থেকে যাবেন?</label><input id="from" list="places" placeholder="যেমন: নিউ মার্কেট" autocomplete="off"></div><div><label for="to">কোথায় যাবেন?</label><input id="to" list="places" placeholder="যেমন: আগ্রাবাদ" autocomplete="off"></div></div>
+<datalist id="places"><option value="নিউ মার্কেট"><option value="আগ্রাবাদ"><option value="GEC মোড়"><option value="চট্টগ্রাম রেলওয়ে স্টেশন"><option value="বহদ্দারহাট"><option value="২ নম্বর গেট"><option value="জিইসি মোড়"><option value="পতেঙ্গা"><option value="অক্সিজেন"><option value="কর্ণফুলী"></datalist>
+<button id="searchBtn">রুটের তথ্য খুঁজুন</button><div id="searchResult" class="status" aria-live="polite">শুরু ও গন্তব্য লিখে অনুসন্ধান করুন।</div><div class="notice">সতর্কতা: এখনো যাচাইকৃত রুট ও ভাড়ার অনলাইন ডেটাবেস সংযুক্ত হয়নি। অনুমান করে বাস, ভাড়া বা সময় নিশ্চিত তথ্য হিসেবে দেখানো হবে না।</div></section>
+<section class="card"><h2>🗺️ চট্টগ্রামের মানচিত্র</h2><p class="sub">মানচিত্রের অবস্থান দেখা যায়; এটি নিজে থেকে বাসের রুট বা ভাড়া নিশ্চিত করে না।</p><iframe title="চট্টগ্রামের মানচিত্র — OpenStreetMap" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=91.75%2C22.25%2C91.88%2C22.38&layer=mapnik&marker=22.3569%2C91.7832"></iframe><p class="small">মানচিত্রের তথ্যসূত্র: © OpenStreetMap contributors.</p></section>
+<section class="card"><h2>📣 যাতায়াতের তথ্য জানান</h2><p class="sub">এই সংস্করণে রিপোর্ট শুধু এই ব্রাউজারে রাখা হবে—অনলাইনে পাঠানো হবে না।</p>
+<label for="kind">রিপোর্টের ধরন</label><select id="kind"><option>ভাড়ার তথ্য</option><option>রুট সংশোধন</option><option>যানজট / রাস্তার সমস্যা</option><option>স্থানের তথ্য</option></select>
+<div class="row"><div><label for="reportFrom">শুরু/স্থান (ঐচ্ছিক)</label><input id="reportFrom" placeholder="যেমন: GEC মোড়"></div><div><label for="reportTo">গন্তব্য (ঐচ্ছিক)</label><input id="reportTo" placeholder="যেমন: নিউ মার্কেট"></div></div>
+<label for="details">বিস্তারিত</label><textarea id="details" rows="3" maxlength="1200" placeholder="কী তথ্য জানাতে চান? ব্যক্তিগত তথ্য লিখবেন না।"></textarea><button id="saveBtn">এই ফোনে রিপোর্ট সংরক্ষণ</button><div id="reportResult" class="status" aria-live="polite">রিপোর্ট জমা দেওয়ার আগে তথ্য যাচাই করে লিখুন।</div></section>
+<section class="card"><h2>🗂️ এই ব্রাউজারে সংরক্ষিত রিপোর্ট</h2><p class="sub">এখানে শুধু এই ডিভাইস/ব্রাউজারে রাখা রিপোর্ট দেখা যাবে। অন্য ব্যবহারকারীরা এগুলো দেখতে পাবেন না।</p><div class="tools"><button class="secondary" id="exportBtn">রিপোর্ট JSON ফাইল হিসেবে ডাউনলোড</button><button class="danger" id="clearBtn">এই ব্রাউজারের রিপোর্ট মুছুন</button></div><div id="reportsList" style="margin-top:12px" aria-live="polite"></div></section>
+<section class="card"><h2>পরবর্তী উন্নয়ন</h2><p class="sub">পরবর্তী মাইলফলকে অনলাইন ডেটাবেস, যাচাইকৃত রুট/ভাড়া, রিপোর্ট যাচাইয়ের অ্যাডমিন ব্যবস্থা এবং নিরাপদ ব্যবহারকারী-অ্যাক্সেস যোগ করা হবে।</p><p class="small">তথ্যের অবস্থা: <strong>যাচাইকৃত</strong>, <strong>কমিউনিটি রিপোর্ট</strong> এবং <strong>যাচাই বাকি</strong> আলাদা করে দেখানোর নকশা অনুসরণ করা হবে।</p></section>
+</main><div class="footer">পথসাথী © · যাতায়াতের তথ্য যাচাই ছাড়া নিশ্চিত ধরে নেবেন না</div>
 <script>
-  document.getElementById('search').addEventListener('click', function () {
-    const from = document.getElementById('from').value.trim();
-    const to = document.getElementById('to').value.trim();
-    const result = document.getElementById('result');
-    if (!from || !to) { result.textContent = 'শুরু ও গন্তব্য—দুটিই লিখুন।'; return; }
-    result.textContent = 'আপনার অনুসন্ধান: ' + from + ' → ' + to + '। এই সংস্করণে যাচাইকৃত রুটের ডেটাবেস এখনো যুক্ত হয়নি। পরবর্তী সংস্করণে বাস্তব রুটের তথ্য যুক্ত করা হবে।';
-  });
-  document.getElementById('save').addEventListener('click', function () {
-    const kind = document.getElementById('kind').value;
-    const details = document.getElementById('details').value.trim();
-    const out = document.getElementById('reportResult');
-    if (!details) { out.textContent = 'রিপোর্ট সংরক্ষণের আগে বিস্তারিত লিখুন।'; return; }
-    try {
-      const key = 'pothshathi_demo_reports';
-      const items = JSON.parse(localStorage.getItem(key) || '[]');
-      items.push({kind, details, createdAt:new Date().toISOString()});
-      localStorage.setItem(key, JSON.stringify(items));
-      document.getElementById('details').value = '';
-      out.textContent = 'ডেমো রিপোর্ট এই ব্রাউজারে সংরক্ষিত হয়েছে। এটি এখনো অনলাইনে জমা হয়নি।';
-    } catch (e) { out.textContent = 'সংরক্ষণ করা যায়নি। ব্রাউজারের স্টোরেজ সেটিং পরীক্ষা করুন।'; }
-  });
-</script>
-</body>
-</html>
+'use strict';const $=id=>document.getElementById(id);const KEY='pothshathi_demo_reports_v2';
+function getReports(){try{const x=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
+function safe(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showReports(){const list=$('reportsList'),items=getReports();if(!items.length){list.innerHTML='<div class="empty">এখনো কোনো রিপোর্ট সংরক্ষণ করা হয়নি।</div>';return}list.innerHTML=items.slice().reverse().map(r=>'<article class="report"><div class="result-title">'+safe(r.kind)+'</div><p>'+safe(r.details)+'</p><p class="small">'+(r.from||r.to?safe(r.from||'স্থান উল্লেখ নেই')+' → '+safe(r.to||'গন্তব্য উল্লেখ নেই')+' · ':'')+safe(new Date(r.createdAt).toLocaleString('bn-BD'))+' · যাচাই বাকি</p></article>').join('')}
+$('searchBtn').addEventListener('click',()=>{const from=$('from').value.trim(),to=$('to').value.trim(),out=$('searchResult');if(!from||!to){out.textContent='শুরু ও গন্তব্য—দুটিই লিখুন।';return}if(from.localeCompare(to,'bn',{sensitivity:'base'})===0){out.textContent='শুরু ও গন্তব্য একই মনে হচ্ছে। আলাদা জায়গা লিখুন।';return}out.innerHTML='<div class="result-title">'+safe(from)+' → '+safe(to)+'</div><p>এই যাত্রার জন্য এখনো যাচাইকৃত রুটের রেকর্ড নেই। আমরা অনুমান করে বাস, ভাড়া বা সময় দেখাচ্ছি না।</p><p>আপনি চাইলে নিচের রিপোর্ট ফর্মে এই রুটের তথ্য জানাতে পারেন। রিপোর্ট যাচাই না হওয়া পর্যন্ত তা নিশ্চিত তথ্য হবে না।</p>';$('reportFrom').value=from;$('reportTo').value=to});
+$('saveBtn').addEventListener('click',()=>{const kind=$('kind').value,details=$('details').value.trim(),out=$('reportResult');if(!details){out.textContent='রিপোর্ট সংরক্ষণের আগে বিস্তারিত লিখুন।';return}if(details.length<5){out.textContent='আরও বিস্তারিত লিখুন (কমপক্ষে ৫টি অক্ষর)।';return}try{const items=getReports();items.push({id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),kind,from:$('reportFrom').value.trim(),to:$('reportTo').value.trim(),details,createdAt:new Date().toISOString(),status:'যাচাই বাকি'});localStorage.setItem(KEY,JSON.stringify(items));$('details').value='';out.textContent='রিপোর্ট এই ব্রাউজারে সংরক্ষিত হয়েছে। এটি এখনো অনলাইনে জমা হয়নি বা যাচাই করা হয়নি।';showReports()}catch(e){out.textContent='সংরক্ষণ করা যায়নি। ব্রাউজারের স্টোরেজ সীমা বা সেটিং পরীক্ষা করুন।'}});
+$('exportBtn').addEventListener('click',()=>{const items=getReports();if(!items.length){$('reportResult').textContent='ডাউনলোড করার মতো কোনো রিপোর্ট নেই।';return}const blob=new Blob([JSON.stringify(items,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='pothshathi-reports.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)});
+$('clearBtn').addEventListener('click',()=>{if(!getReports().length){$('reportResult').textContent='মুছে ফেলার মতো কোনো রিপোর্ট নেই।';return}if(confirm('এই ব্রাউজারে সংরক্ষিত সব পথসাথী রিপোর্ট মুছে ফেলবেন?')){localStorage.removeItem(KEY);showReports();$('reportResult').textContent='এই ব্রাউজারের রিপোর্ট মুছে ফেলা হয়েছে।'}});
+showReports();
+</script></body></html>
